@@ -4,41 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gerenciador de Notas</title>
-    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
-    <h1>Gerenciador de Notas</h1>
-    <button id="addNoteButton">Adicionar Nota</button>
+<body class="dark">
+    <h1 class="text-center mt-5 text-2xl font-bold">Gerenciador de Notas</h1>
+    <button id="addNoteButton" class="block mx-auto my-5 px-4 py-2 bg-blue-500 text-white rounded">Adicionar Nota</button>
 
-    <div id="noteModal" class="modal">
-        <div class="modal-content">
-            <span class="close-button">&times;</span>
-            <form id="noteForm">
-                <label>
-                    <input type="radio" name="noteType" value="LV"> LV
+    <div id="noteModal" class="modal fixed z-10 inset-0 overflow-y-auto">
+        <div class="modal-content bg-white dark:bg-gray-800 mx-auto my-20 p-5 border border-gray-300 dark:border-gray-700 rounded w-4/5 max-w-lg">
+            <span class="close-button text-gray-500 dark:text-gray-400 float-right text-2xl font-bold cursor-pointer">&times;</span>
+            <form id="noteForm" class="flex flex-col">
+                <label class="mb-2">
+                    <input type="radio" name="noteType" value="LV" class="mr-2"> LV
                 </label>
-                <label>
-                    <input type="radio" name="noteType" value="LM"> LM
+                <label class="mb-2">
+                    <input type="radio" name="noteType" value="LM" class="mr-2"> LM
                 </label>
-                <label>
-                    <input type="radio" name="noteType" value="SIS"> SIS
+                <label class="mb-2">
+                    <input type="radio" name="noteType" value="SIS" class="mr-2"> SIS
                 </label>
-                <label>
-                    <input type="radio" name="noteType" value="OUTROS"> OUTROS
+                <label class="mb-2">
+                    <input type="radio" name="noteType" value="OUTROS" class="mr-2"> OUTROS
                 </label>
-                <input type="text" id="noteTitle" name="noteTitle" placeholder="Título da Nota">
-                <textarea id="noteObservation" name="noteObservation" placeholder="Observação da Nota"></textarea>
-                <button type="submit">Salvar Nota</button>
-                <button type="button" id="cancelButton">Cancelar</button>
+                <input type="text" id="noteTitle" name="noteTitle" placeholder="Título da Nota" class="mb-2 p-2 text-lg w-full border border-gray-300 dark:border-gray-700 rounded">
+                <textarea id="noteObservation" name="noteObservation" placeholder="Observação da Nota" class="mb-2 p-2 text-lg w-full border border-gray-300 dark:border-gray-700 rounded h-32"></textarea>
+                <button type="submit" class="mb-2 px-4 py-2 bg-green-500 text-white rounded">Salvar Nota</button>
+                <button type="button" id="cancelButton" class="px-4 py-2 bg-red-500 text-white rounded">Cancelar</button>
             </form>
         </div>
     </div>
 
-    <div id="notesGrid" class="grid">
+    <div id="notesGrid" class="grid grid-cols-5 gap-4 p-5">
         <!-- Notas serão adicionadas aqui -->
     </div>
 
-    <button id="generateTextButton" class="generate-text-button">Gerar Texto com Todas as Notas</button>
+    <button id="generateTextButton" class="fixed bottom-5 right-5 px-4 py-2 bg-yellow-500 text-white rounded">Gerar Texto com Todas as Notas</button>
+
+    <div id="generatedTextModal" class="modal fixed z-10 inset-0 overflow-y-auto hidden">
+        <div class="modal-content bg-white dark:bg-gray-800 mx-auto my-20 p-5 border border-gray-300 dark:border-gray-700 rounded w-4/5 max-w-lg">
+            <span class="close-button text-gray-500 dark:text-gray-400 float-right text-2xl font-bold cursor-pointer">&times;</span>
+            <div id="generatedTextContent" class="text-lg"></div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>

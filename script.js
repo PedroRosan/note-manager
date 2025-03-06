@@ -6,6 +6,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const cancelButton = document.getElementById('cancelButton');
     const notesGrid = document.getElementById('notesGrid');
     const generateTextButton = document.getElementById('generateTextButton');
+    const generatedTextModal = document.getElementById('generatedTextModal');
+    const generatedTextContent = document.getElementById('generatedTextContent');
+    const generatedTextCloseButton = generatedTextModal.querySelector('.close-button');
 
     addNoteButton.addEventListener('click', function() {
         noteModal.style.display = 'block';
@@ -32,13 +35,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function addNoteToGrid(type, title, observation) {
         const note = document.createElement('div');
-        note.classList.add('note');
+        note.classList.add('note', 'bg-gray-100', 'dark:bg-gray-700', 'p-4', 'border', 'border-gray-300', 'dark:border-gray-600', 'rounded', 'relative');
         note.innerHTML = `
             <p><strong>Tipo:</strong> ${type}</p>
             <p><strong>Título:</strong> ${title}</p>
             <p><strong>Observação:</strong> ${observation}</p>
-            <button class="edit-button">Editar</button>
-            <button class="delete-button">Deletar</button>
+            <button class="edit-button bg-blue-500 text-white px-2 py-1 rounded absolute top-2 right-16">Editar</button>
+            <button class="delete-button bg-red-500 text-white px-2 py-1 rounded absolute top-2 right-2">Deletar</button>
         `;
 
         const editButton = note.querySelector('.edit-button');
@@ -77,6 +80,11 @@ document.addEventListener('DOMContentLoaded', function() {
             const observation = note.querySelector('p:nth-child(3)').textContent.replace('Observação: ', '');
             allNotesText += `**** ${type} ****\nTITULO DA NOTA QUE SERIA A REF. ${title}\nOBSERVACAO DA NOTA ${observation}\n\n`;
         });
-        console.log(allNotesText);
+        generatedTextContent.textContent = allNotesText;
+        generatedTextModal.style.display = 'block';
+    });
+
+    generatedTextCloseButton.addEventListener('click', function() {
+        generatedTextModal.style.display = 'none';
     });
 });
