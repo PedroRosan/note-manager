@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const type = note.querySelector('p:nth-child(1)').textContent.replace('Tipo: ', '');
             const title = note.querySelector('p:nth-child(2)').textContent.replace('Título: ', '');
             const observation = note.querySelector('p:nth-child(3)').textContent.replace('Observação: ', '');
-            allNotesText += `**** ${type} ****\r\nref ${title}\r\n${observation.replace(' / ', '\r\n')}\r\n\r\n`;
+            allNotesText += `**** ${type.toUpperCase()} ****\r\nREF ${title.toUpperCase()}\r\n${observation.replace(' / ', '\r\n').toUpperCase()}\r\n\r\n`;
         });
         generatedTextContent.textContent = allNotesText;
         generatedTextModal.style.display = 'block';
