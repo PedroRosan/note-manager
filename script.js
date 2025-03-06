@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const type = note.querySelector('p:nth-child(1)').textContent.replace('Tipo: ', '');
             const title = note.querySelector('p:nth-child(2)').textContent.replace('Título: ', '');
             const observation = note.querySelector('p:nth-child(3)').textContent.replace('Observação: ', '');
-            allNotesText += `**** ${type} ****\n${title}\n${observation}\n\n`;
+            allNotesText += `**** ${type} ****\r\n${title}\r\n${observation}\r\n\r\n`;
         });
         generatedTextContent.textContent = allNotesText;
         generatedTextModal.style.display = 'block';
