@@ -15,5 +15,17 @@ public class testando {
         livro.aplicaDescontoDe(10);
         
         livro.mostrarDetalheDoLivro();
+
+        Ebook ebook = new Ebook(livro.getAutor());
+        ebook.setNome("Aprendendo Java - Edição Digital");
+        ebook.setDescricao("Versão digital do guia completo para iniciantes em Java.");
+        ebook.setValor(29.90);
+
+        if(ebook.aplicaDescontoDe(15)) {
+            System.out.println("Desconto aplicado com sucesso!");
+        } else {
+            System.out.println("Desconto não aplicado.");
+        }
+
     }
 }
