@@ -1,4 +1,7 @@
-public class Livros{
+package pedro.produtos;
+import pedro.livraria.Autor;
+
+public abstract class Livros implements Produto{
     
     String nome;
     String descricao;
@@ -16,7 +19,7 @@ public class Livros{
     public Livros() {
     }
 
-    void mostrarDetalheDoLivro() {
+    public void mostrarDetalheDoLivro() {
         System.out.println("Detalhes do Livro:");
         System.out.println("Nome: " + this.nome);
         System.out.println("Descrição: " + this.descricao);
@@ -28,15 +31,7 @@ public class Livros{
         System.out.println("------------------------------------");
     }
 
-    boolean aplicaDescontoDe(double porcentagem) {
-        if (porcentagem > 30) {
-            return false;
-        }
-        this.valor -= this.valor * (porcentagem / 100);
-        return true; 
-    }
-
-    boolean temAutor() {
+    public boolean temAutor() {
         return this.autor != null;
     }
 

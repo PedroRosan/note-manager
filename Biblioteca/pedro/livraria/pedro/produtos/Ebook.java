@@ -1,4 +1,7 @@
-public class Ebook extends Livros {
+package pedro.produtos;
+import pedro.livraria.Autor;
+
+public class Ebook extends Livros implements Promocional {
 
     private String waterMark;
 
@@ -17,7 +20,9 @@ public class Ebook extends Livros {
         if (porcentagem > 15) {
             return false;
         }
-        return super.aplicaDescontoDe(porcentagem);
+        double desconto = this.getValor() * porcentagem / 100;
+        this.setValor(this.getValor() - desconto);
+        return true;
     }
     
 }

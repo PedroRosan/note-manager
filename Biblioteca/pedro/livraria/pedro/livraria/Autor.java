@@ -1,3 +1,4 @@
+package pedro.livraria;
 public class Autor {
 
 
@@ -5,7 +6,7 @@ public class Autor {
     private String nacionalidade;
     private String dataNascimento;
 
-    void mostrarDetalheDoAutor() {
+    public void mostrarDetalheDoAutor() {
         System.out.println("Detalhes do Autor:");
         System.out.println("Nome: " + this.nome);
         System.out.println("Nacionalidade: " + this.nacionalidade);
